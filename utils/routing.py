@@ -4,7 +4,7 @@ import pkgutil
 
 
 @dataclass
-class LayoutPath:
+class PathUtil:
     pieces: List[str]
 
     def fs_path(self) -> str:
@@ -26,7 +26,7 @@ class LayoutPath:
         self.pieces.insert(0, piece)
 
 
-def find_module_names_in_path(path: LayoutPath) -> List[str]:
+def find_module_names_in_path(path: PathUtil) -> List[str]:
     return [name for _, name, _ in pkgutil.iter_modules([path.fs_path()])]
 
 
@@ -38,6 +38,6 @@ def join_mod(*parts: str) -> str:
     return '.'.join(parts)
 
 
-def walk_package(name: str) -> List[LayoutPath]:
+def walk_package(name: str) -> List[PathUtil]:
     packages = pkgutil.walk_packages([name])
-    return [LayoutPath([loader.path.split('/')[-1], name]) for loader, name, _ in packages]
+    return [PathUtil([loader.path.split('/')[-1], name]) for loader, name, _ in packages]

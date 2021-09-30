@@ -1,3 +1,17 @@
-from dash import html
+from dash import html, dcc
 
-layout = html.P("Hello drukte parking")
+from pages.drukte.parking.data import dataframe
+
+layout = html.Div([
+    html.H1("GDP viewer"),
+    html.Hr(),
+    dcc.Graph(id='graph-with-slider'),
+    dcc.Slider(
+        id='year-slider',
+        min=dataframe()['year'].min(),
+        max=dataframe()['year'].max(),
+        value=dataframe()['year'].min(),
+        marks={str(year): str(year) for year in dataframe()['year'].unique()},
+        step=None
+    )
+])
