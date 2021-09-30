@@ -1,4 +1,15 @@
+from typing import List
+
 from dash import html, dcc
+from components import navigation
+from utils.routing import PathUtil
 
 content = html.Div(id="page-content")
-layout = html.Div([dcc.Location(id='url'), content])
+
+
+def generate_layout(routes: List[PathUtil]):
+    return html.Div([
+        dcc.Location(id='url'),
+        navigation.navbar(routes),
+        content
+    ])
