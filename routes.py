@@ -5,6 +5,7 @@ import dash
 from dash.dependencies import Input, Output
 
 from components import notfound
+from environment import settings
 from utils.routing import find_module_names_in_path, walk_package, LayoutPath
 
 
@@ -42,4 +43,6 @@ def create_render_function(app: dash.Dash):
     def render_page_content(pathname):
         if pathname in modules:
             return modules[pathname].layout
+        if settings.DEFAULT_URL in modules:
+            return modules[settings.DEFAULT_URL].layout
         return notfound
