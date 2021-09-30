@@ -4,4 +4,4 @@ from environment import settings
 
 if __name__ == '__main__':
     create_render_function(app)
-    app.run_server(debug=settings.DEBUG is not None)
+    app.run_server(debug=settings.DEBUG)
