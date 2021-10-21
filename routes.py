@@ -16,7 +16,6 @@ def _find_layouts_and_init_callbacks(app: dash.Dash):
         top_files = find_module_names_in_path(package)
         # pages/<top_files>/layout.py ??
         if 'callbacks' in top_files:
-            print(f'registering callbacks for {package}')
             # noinspection PyUnresolvedReferences
             importlib.import_module(PathUtil([*package.pieces, 'callbacks']).mod_path()).callbacks(app)
         if 'layout' in top_files:
@@ -30,7 +29,6 @@ def _find_layouts_and_init_callbacks(app: dash.Dash):
                 sub_files = find_module_names_in_path(sub)
                 # pages/<top_files>/<sub_files>/layout.py ??
                 if 'callbacks' in sub_files:
-                    print(f'registering callbacks for {sub}')
                     # noinspection PyUnresolvedReferences
                     importlib.import_module(PathUtil([*sub.pieces, 'callbacks']).mod_path()).callbacks(app)
                 if 'layout' in sub_files:
@@ -45,8 +43,6 @@ def create_render_function(app: dash.Dash) -> List[PathUtil]:
     pages = _find_layouts_and_init_callbacks(app)
     modules = {x.url(): {'module': importlib.import_module(x.mod_path()),
                          'path': x} for x in pages}
-
-    print(f'Starting webserver with the following paths: {modules}')
 
     @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
     def render_page_content(pathname):

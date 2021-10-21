@@ -23,7 +23,7 @@ def get_content_with_id(html_id: str):
 layout = Column(children=[
     Row(children=[
         Column(content=get_content_with_id('graph-with-slider')),
-        Column()
+        Column(),
     ]),
     Row(children=[
         Column(),
