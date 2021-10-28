@@ -7,7 +7,7 @@ The goal of Dash Data Dialogics is to **facilitate the analytical process to get
  
 With Dash Data Dialogics a data scientist or data analyst (who is not afraid of code) can facilitate the exchange of thoughts by adding an extra layer to the dialogue: the data visualizations. Just like the human thought flow the data visualizations must continuously evolve and adapt to enrich the conversation. Python, with its rich ecosystem of data analytics libraries, offers almost endless possibilities to handle and analyze data. Dash (by Plotly) allows to put complex Python analytics in the hands of business users. The Dash Data Dialogics framework adds more **flexibility and speed to adapt data visualizations to the rhythm of the dialogue.** 
 
-## APPLICATION INSTALLATION AND USAGE
+## Application installation and usage
 
 ### Prerequisites
 
