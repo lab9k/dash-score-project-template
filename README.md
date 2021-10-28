@@ -1,11 +1,11 @@
 # Data Dialogics with Dash
 
 ## About
-This library provides a **basic Dash app structure** which allows data analysts and data scientists to do what they do best: load, manipulate, combine, visualize and analyze data. With this app structure data experts will spend less time on app development and more time on data analytics and the data dialogue with domain experts and decision makers. 
+This library provides a **basic [Dash](https://dash.plotly.com "Dash Documentation and User Guide") app structure** which allows data analysts and data scientists to do what they do best: load, manipulate, combine, visualize and analyze data. With this app structure data experts will spend less time on app development and more time on data analytics and the data dialogue with domain experts and decision makers. 
  
 The goal of Dash Data Dialogics is to **facilitate the analytical process to get from noisy uncertainty to clear insights**. The essence of this analytical process is not the data, the algorithms or the visualization tools. It is the human thought flow of the domain experts and decision makers. This means domain experts and decision makers are not just consumers of the results, they should be involved at the center of the analytical process. 
  
-With Dash Data Dialogics a data scientist or data analyst (who is not afraid of code) can facilitate the exchange of thoughts by adding an extra layer to the dialogue: the data visualizations. Just like the human thought flow the data visualizations must continuously evolve and adapt to enrich the conversation. Python, with its rich ecosystem of data analytics libraries, offers almost endless possibilities to handle and analyze data. Dash (by Plotly) allows to put complex Python analytics in the hands of business users. The Dash Data Dialogics framework adds more **flexibility and speed to adapt data visualizations to the rhythm of the dialogue.** 
+With Dash Data Dialogics a data scientist or data analyst (who is not afraid of code) can facilitate the exchange of thoughts by adding an extra layer to the dialogue: the data visualizations. Just like the human thought flow the data visualizations must continuously evolve and adapt to enrich the conversation. Python, with its rich ecosystem of data analytics libraries, offers almost endless possibilities to handle and analyze data. [Dash](https://dash.plotly.com "Dash Documentation and User Guide") (by Plotly) allows to put complex Python analytics in the hands of business users. The Dash Data Dialogics framework adds more **flexibility and speed to adapt data visualizations to the rhythm of the dialogue.** 
 
 ## Application installation and usage
 
