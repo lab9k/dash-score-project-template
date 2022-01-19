@@ -5,7 +5,7 @@ from flask_caching import Cache
 
 from environment import settings
 from layout import generate_layout
-from routes import create_render_function
+from routes import setup_routing
 
 flask_server = flask.Flask(__name__)
 
@@ -25,7 +25,7 @@ cache = Cache(app.server, config={
     'CACHE_DIR': settings.CACHE_LOCATION
 })
 
-routes = create_render_function(app)
+routes = setup_routing(app)
 app.layout = generate_layout(routes)
 
 server = app.server

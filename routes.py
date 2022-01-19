@@ -39,7 +39,7 @@ def _find_layouts_and_init_callbacks(app: dash.Dash):
     return page_names
 
 
-def create_render_function(app: dash.Dash) -> List[PathUtil]:
+def setup_routing(app: dash.Dash) -> List[PathUtil]:
     pages = _find_layouts_and_init_callbacks(app)
     modules = {x.url(): {'module': importlib.import_module(x.mod_path()),
                          'path': x} for x in pages}
