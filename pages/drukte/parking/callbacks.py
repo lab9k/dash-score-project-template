@@ -3,6 +3,7 @@ from dash.dependencies import Input, Output
 from plotly import express as px
 
 from pages.drukte.parking.data import dataframe
+from environment import settings
 
 
 def callbacks(app: dash.Dash):
@@ -16,7 +17,7 @@ def callbacks(app: dash.Dash):
 
             fig = px.scatter(filtered_df, x="gdpPercap", y="lifeExp",
                              size="pop", color="continent", hover_name="country",
-                             log_x=True, size_max=55)
+                             log_x=True, size_max=55, color_discrete_sequence=settings.DEFAULT_VISUALS_COLOR_THEME)
 
             fig.update_layout(transition_duration=500)
 
