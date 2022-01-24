@@ -39,9 +39,9 @@ class VariableStore:
 
             data = data or {}
 
-            callable_args = {key: data.get(val, None) for key, val in store_var_ids}
+            callable_args = [data.get(v, None) for v in store_var_ids]
 
-            returned_value = output_func(**callable_args)
+            returned_value = output_func(*callable_args)
             return returned_value
 
         return self
