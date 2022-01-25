@@ -29,6 +29,6 @@ cache = Cache(app.server, config={
 storage_container.initialize(app)
 routes = setup_routing(app)
 
-app.layout = generate_layout(routes)
+app.layout = generate_layout(routes, storage_container.memory_store.store_ids)
 
 server = app.server

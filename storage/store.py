@@ -4,15 +4,18 @@ from typing import List, Callable
 
 
 class VariableStore:
-    def __init__(self, app: Dash, store_id: str):
-        self.store = store_id
+    def __init__(self, app: Dash):
         self.app = app
+        self.store_ids: List[str] = []
 
     def add_input_to_store(self, input_id: str, value_prop: str) -> 'VariableStore':
+        store_id = f'{input_id}-store'
+        self.store_ids.append(store_id)
+
         @self.app.callback(
-            Output(self.store, 'data'),
+            Output(store_id, 'data'),
             Input(input_id, value_prop),
-            State(self.store, 'data'))
+            State(store_id, 'data'))
         def temp(updated_value, data):
             if updated_value is None:
                 raise PreventUpdate
@@ -28,24 +31,31 @@ class VariableStore:
                             output_id: str,
                             output_prop: str,
                             output_func: Callable) -> 'VariableStore':
+        store_ids = [f'{x}-store' for x in store_var_ids]
+
+        inputs = {x: Input(x, 'modified_timestamp') for x in store_ids}
+
         @self.app.callback(
-            Output(output_id, output_prop),
-            Input(self.store, 'modified_timestamp'),
-            State(self.store, 'data')
+            output=[Output(output_id, output_prop)],
+            inputs=inputs,
+            state={f'{x}-state': State(x, 'data') for x in store_ids}
         )
-        def temp(updated_value, data):
-            if updated_value is None:
+        def temp(**kwargs):
+            y = [(k, v) for k, v in kwargs.items()]
+            found_states = list(filter(lambda tp: tp[0].endswith('-state'), y))
+            if len(inputs) == len(list(filter(lambda x: x is None, found_states))):
                 raise PreventUpdate
 
-            data = data or {}
+            states_dicts = [y[1] for y in found_states]
+            states = {}
+            for sd in states_dicts:
+                states.update(sd)
 
-            callable_args = [data.get(v, None) for v in store_var_ids]
-
-            returned_value = output_func(*callable_args)
-            return returned_value
+            callable_args = [states.get(v, None) for v in store_var_ids]
+            return output_func(*callable_args)
 
         return self
 
 
-def initialize_memory_store(app: Dash, store_id: str) -> VariableStore:
-    return VariableStore(app, store_id)
+def initialize_memory_store(app: Dash) -> VariableStore:
+    return VariableStore(app)

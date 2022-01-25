@@ -10,7 +10,7 @@ class Storage:
         self.memory_store: Optional[VariableStore] = None
 
     def initialize(self, app: Dash):
-        self.memory_store = initialize_memory_store(app, 'memory_store_id')
+        self.memory_store = initialize_memory_store(app)
 
 
 container = Storage()

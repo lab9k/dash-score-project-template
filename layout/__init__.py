@@ -7,9 +7,9 @@ from utils.routing import PathUtil
 content = html.Div(id="page-content")
 
 
-def generate_layout(routes: List[PathUtil]):
+def generate_layout(routes: List[PathUtil], store_ids: List[str]):
     return html.Div([
-        dcc.Store('memory_store_id'),
+        *[dcc.Store(x) for x in store_ids],
         dcc.Location(id='url'),
         navigation.navbar(routes),
         content
