@@ -2,7 +2,6 @@ from dash import html, dcc
 from layout.structure.grid import Column, Row
 
 from pages.drukte.parking.data import dataframe
-from storage import container as storage_container
 
 
 def get_content_with_id(html_id: str):
@@ -39,7 +38,7 @@ def process_args(one, two):
     return [f'({one} -> {two})']
 
 
-storage_container.memory_store.add_input_to_store('graph-with-slider-slider', 'value') \
-    .add_input_to_store('graph-with-slider-2-slider', 'value') \
-    .add_store_to_output(['graph-with-slider-slider', 'graph-with-slider-2-slider'], 'some_output_id', 'value',
-                         process_args)
+# storage_container.memory_store.link_input_to_store('graph-with-slider-slider', 'value') \
+#     .link_input_to_store('graph-with-slider-2-slider', 'value') \
+#     .link_store_to_output(['graph-with-slider-slider', 'graph-with-slider-2-slider'], 'some_output_id', 'value',
+#                           process_args)

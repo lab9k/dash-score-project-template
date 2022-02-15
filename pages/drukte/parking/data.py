@@ -6,7 +6,6 @@ def get_df():
     queried_data = preprocess.query_data()
 
     def filters(**kwargs):
-        print('filter from parking')
         return pd.read_json(queried_data, orient='split')
 
     return filters

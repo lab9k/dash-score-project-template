@@ -1,16 +1,20 @@
-from typing import Optional
+from typing import Optional, List
 
-from dash import Dash
-
-from .store import initialize_memory_store, VariableStore
+from dash.dcc import Store
 
 
 class Storage:
     def __init__(self):
-        self.memory_store: Optional[VariableStore] = None
+        self.stores: List[Store] = []
 
-    def initialize(self, app: Dash):
-        self.memory_store = initialize_memory_store(app)
+    def add_memory_store(self, store_id: str):
+        self.stores.append(Store(id=store_id, storage_type='memory'))
+
+    def add_local_store(self, store_id: str):
+        self.stores.append(Store(id=store_id, storage_type='local'))
+
+    def add_session_store(self, store_id: str):
+        self.stores.append(Store(id=store_id, storage_type='session'))
 
 
 container = Storage()
