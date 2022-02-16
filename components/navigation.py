@@ -17,12 +17,19 @@ def _navbar_toggler():
 
 
 def navbar(routes: List[PathUtil]):
+    print('navbar called')
     links = []
     for path in routes:
-        links.append(html.Li(className='nav-item', children=[
-            html.A(className='nav-link active',
-                   href=path.url(), children=[path.pieces[-2]])
-        ]))
+        if path.is_page():
+            links.append(html.Li(className='nav-item', children=[
+                html.A(className='nav-link active',
+                       href=path.url(), children=[path.pieces[-2]])
+            ]))
+        else:
+            links.append(html.Li(className='nav-item', children=[
+                html.A(className='nav-link active',
+                       href=path.children[0].url(), children=[f'{path.pieces[-1]}'])
+            ]))
     return html.Nav(className='navbar navbar-expand-lg navbar-light bg-light',
                     children=[
                         html.Div(className='container-fluid',
@@ -51,5 +58,11 @@ def navbar(routes: List[PathUtil]):
                     ])
 
 
-def sidebar():
-    return html.Div()
+def sidebar(paths: List[PathUtil]):
+    return html.Div(className='d-flex flex-column p-3 sticky-top', children=[
+        html.Ul(className='nav nav-pills flex-column mb-auto', children=[
+            html.Li(children=[
+                html.A(className='nav-item', href=x.url(), children=[x.pieces[-2]])
+            ]) for x in paths
+        ])
+    ])

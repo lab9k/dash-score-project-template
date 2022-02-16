@@ -6,6 +6,7 @@ import pkgutil
 @dataclass
 class PathUtil:
     pieces: List[str]
+    children: List['PathUtil']
 
     def fs_path(self) -> str:
         return join_path(*self.pieces)
@@ -13,10 +14,15 @@ class PathUtil:
     def mod_path(self) -> str:
         return join_mod(*self.pieces)
 
+    def is_page(self) -> bool:
+        return 'layout' in self.pieces
+
     def url(self) -> str:
         pieces = self.pieces.copy()
-        pieces.remove('pages')
-        pieces.remove('layout')
+        if 'pages' in pieces:
+            pieces.remove('pages')
+        if 'layout' in pieces:
+            pieces.remove('layout')
         return join_path('', *pieces)
 
     def append_piece(self, piece: str):
@@ -40,4 +46,4 @@ def join_mod(*parts: str) -> str:
 
 def walk_package(name: str) -> List[PathUtil]:
     packages = pkgutil.walk_packages([name])
-    return [PathUtil([loader.path.split('/')[-1], name]) for loader, name, _ in packages]
+    return [PathUtil([loader.path.split('/')[-1], name], []) for loader, name, _ in packages]
