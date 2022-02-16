@@ -6,6 +6,7 @@ from flask_caching import Cache
 from environment import settings
 from layout import generate_layout
 from routes import setup_routing
+from storage import container as storage_container
 
 flask_server = flask.Flask(__name__)
 
@@ -26,6 +27,7 @@ cache = Cache(app.server, config={
 })
 
 routes = setup_routing(app)
-app.layout = generate_layout(routes)
+
+app.layout = generate_layout(routes, storage_container.stores)
 
 server = app.server

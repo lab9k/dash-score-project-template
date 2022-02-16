@@ -27,6 +27,18 @@ layout = Column(children=[
     ]),
     Row(children=[
         Column(),
-        Column(content=get_content_with_id('graph-with-slider-2'))
+        Column(content=get_content_with_id('graph-with-slider-2')),
+        Column(content=dcc.Input('some_output_id'))
     ])
 ]).get_layout()
+
+
+def process_args(one, two):
+    print(one, two)
+    return [f'({one} -> {two})']
+
+
+# storage_container.memory_store.link_input_to_store('graph-with-slider-slider', 'value') \
+#     .link_input_to_store('graph-with-slider-2-slider', 'value') \
+#     .link_store_to_output(['graph-with-slider-slider', 'graph-with-slider-2-slider'], 'some_output_id', 'value',
+#                           process_args)
