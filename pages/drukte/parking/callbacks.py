@@ -2,10 +2,10 @@ import dash
 from dash.dependencies import Input, Output
 from plotly import express as px
 
-from pages.drukte.parking.data import dataframe
-
 
 def callbacks(app: dash.Dash):
+    from pages.drukte.parking.data import dataframe
+
     def create_callback_with_id(html_id: str):
         @app.callback(
             Output(html_id, 'figure'),
