@@ -12,7 +12,6 @@ CACHE_TYPE = 'filesystem'
 CACHE_LOCATION = 'cache-directory'
 CACHE_TIMEOUT = 60
 
-DEBUG = os.getenv('DEBUG', None) is not None
+DEBUG = os.getenv('DEBUG', None) is None
 
 DEFAULT_URL = '/drukte/parking'
-
