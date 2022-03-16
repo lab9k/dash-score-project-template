@@ -45,12 +45,12 @@ def navbar(routes: List[PathUtil]):
                                                   html.Ul(
                                                       className='navbar-nav me-auto mb-2 mb-lg-0',
                                                       children=[
-                                                          html.Li(className='nav-item',
-                                                                  children=[
-                                                                      html.A(className='nav-link active',
-                                                                             href='/',
-                                                                             children=['Home'])
-                                                                  ]),
+                                                          # html.Li(className='nav-item',
+                                                          #         children=[
+                                                          #             html.A(className='nav-link active',
+                                                          #                    href='/',
+                                                          #                    children=['Home'])
+                                                          #         ]),
                                                           *links
                                                       ])
                                               ])
