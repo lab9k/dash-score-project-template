@@ -40,10 +40,10 @@ def navbar(routes: List[PathUtil]):
                                          "Dashboard Stad Gent"
                                      ]),
                                      _navbar_toggler(),
-                                     html.Div(className='collapse navbar-collapse', id='navbarSupportedContent',
+                                     html.Div(className='collapse navbar-collapse justify-content-end', id='navbarSupportedContent',
                                               children=[
                                                   html.Ul(
-                                                      className='navbar-nav me-auto mb-2 mb-lg-0',
+                                                      className='navbar-nav',
                                                       children=[
                                                           # html.Li(className='nav-item',
                                                           #         children=[
