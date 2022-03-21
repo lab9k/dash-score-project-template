@@ -37,7 +37,7 @@ def navbar(routes: List[PathUtil]):
                                      html.A(className='navbar-brand text-light', href='/', children=[
                                          html.Img(src='/assets/img/favicon-32x32.png', alt='logo stad gent', width=32,
                                                   height=32, className='d-inline-block mx-3'),
-                                         "Dashboard Stad Gent"
+                                         "Dash Data Dialogics Template"
                                      ]),
                                      _navbar_toggler(),
                                      html.Div(className='collapse navbar-collapse justify-content-end', id='navbarSupportedContent',
