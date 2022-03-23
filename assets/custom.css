@@ -2,3 +2,11 @@
     padding: 0.25rem 0.5rem;
     font-size:1rem;
     }
+    
+.leaflet-title{
+    border-radius: 5px;
+    border: 1px solid #B2B2B2;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 60px;
+}

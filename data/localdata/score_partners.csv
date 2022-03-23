@@ -5,10 +5,10 @@ PartnerId;City;Partner;Partner_EN;lat;long
 004;Dordrecht;Gemeente Dordrecht;City of Dordrecht;51.81391107442045;4.664450027406499
 005;Gothenburg;Gothenburg City and Johanneberg Science Park;Gothenburg City and Johanneberg Science Park;57.68521413425404;11.978545685266337
 006;Bergen;Bergen Kommune;City of Bergen;60.39211568558024;5.328017385249812
-007;Bradford;City of Bradford Metropolitan District Council  (CBMDC);City of Bradford Metropolitan District Council  (CBMDC);53.79237124072079;178.2467475
-008;Bradford;University of Bradford (UoB);University of Bradford (UoB);53.791471660788254;178.233903393558
+007;Bradford;City of Bradford Metropolitan District Council  (CBMDC);City of Bradford Metropolitan District Council  (CBMDC);53.79237124072079;-1.7532525
+008;Bradford;University of Bradford (UoB);University of Bradford (UoB);53.791471660788254;-1.766096606
 009;Aarhus;Aarhus Kommune;City of Aarhus;56.15258047424588;10.203045033142322
 010;Aarhus;Aarhus University (AU);Aarhus University (AU);56.17254580822961;10.187080171039222
-011;Aberdeen;Aberdeen City Council (ACC);Aberdeen City Council (ACC);57.147778589089945;177.905119492131
+011;Aberdeen;Aberdeen City Council (ACC);Aberdeen City Council (ACC);57.147778589089945;-2.0948805078
 012;Gent;Stad Gent;City of Ghent;51.05449972297541;3.7252804302296596
 013;Gent;District09;District09;51.03752351153852;3.735394904635143
