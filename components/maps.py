@@ -1,7 +1,7 @@
 import dash_leaflet as dl
 
 
-dflt_mapcenter=[56.15305574802655, 6.839489392431859]
+dflt_mapcenter=[56.46738142611407, 4.270427975709105]
 dflt_zoom=5
 
 
@@ -49,8 +49,8 @@ def lfmap_fig(comp_id:str, mapchildren=[dl.TileLayer()], center=dflt_mapcenter, 
     mapfig = dl.Map(center=center, zoom=zoom,
                     children=mapchildren,
                     id=comp_id,
-                    # className='w-100 p-50',
-                    style={'width': '800px', 'height': '500px'}
+                    className='w-100 h-100',
+                    style={'min-width': '400px', 'min-height': '500px'}
                     )
             
     return mapfig

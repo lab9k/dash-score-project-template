@@ -72,15 +72,16 @@ def plottile(tiletitle:str, className='', **kwargs):
 def maptile(tiletitle:str, className='', mapfigure=None):
     content = html.Div(className = 'px-2 py-2', children=[
         html.Div(
-            className = className + ' shadow bg-white', 
+            className = className + ' position-relative shadow bg-white', 
             children = [
-                mapfigure,
-                html.Div(className = 'zindex-dropdown position-relative top-0 start-0 pt-3 pl-5',
+                html.Div(className = 'leaflet-top leaflet-title bg-white',
+                         # style={'z-index':5000},
                          children=[
                              html.H6(tiletitle, 
-                                     className='text-primary px-3 pt-2 bg-white'
+                                     className='text-primary px-2 pt-1 '
                                      )]
                          ),
+                mapfigure,
             ])
         ])
     return content
