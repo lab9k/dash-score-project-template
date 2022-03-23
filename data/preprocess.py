@@ -22,6 +22,14 @@ def get_df():
 gapminderdf = get_df()
 
 
+######!!!====== SCORE partners =====!!!######
+##### Set data directory parameters
+indir = ".\\data\\localdata\\"
+infile = "score_partners.csv"
+##### Read data
+scorepartners = pd.read_csv(indir+infile, sep=';')
+##### Prepare data
+
 ######!!!====== dataset =====!!!######
 ##### Set data directory parameters
 
