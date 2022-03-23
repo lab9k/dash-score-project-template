@@ -22,7 +22,7 @@ class _Grid(metaclass=ABCMeta):
             content = self.content
         this = html.Div(className=f'{self.t} {" ".join(self.extra_classes)}', children=content, style=self.styles)
         if include_container:
-            return html.Div(className='container', children=[this])
+            return html.Div(className='container-fluid min-vh-100 bg-light', children=[this])
         return this
 
 

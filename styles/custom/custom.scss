@@ -1,0 +1,13 @@
+
+// Custom override variables
+$primary:       #3e8c93 !default;
+$secondary:     #3b4d4f !default;
+$light:         #f5f9f8 !default;
+$dark:          #283c3c !default;
+
+
+$text-muted:    #9aa2a0 !default;
+
+// Include all of Bootstrap
+@import "../bootstrap/scss/bootstrap";
+
