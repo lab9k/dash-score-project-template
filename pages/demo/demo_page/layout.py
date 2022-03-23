@@ -86,7 +86,7 @@ layout = Column(children=[
             Row(content=subtitletile('Gross domestic product (GDP)')),
             Row(content=filter_year('filter_year')),
             Row(content=plot_gdp('plot_gdp'))
-                         ]),
+                         ], extra_classes=[' col-xl-7']),
         Column(children=[
             Row(content=subtitletile('Project SCORE: Smart Cities + Open Data Re-use')),
             Row(content= text_score(comp_id=text_score)),
