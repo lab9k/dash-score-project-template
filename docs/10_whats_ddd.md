@@ -2,8 +2,8 @@
 
 ## About
 This library provides a **basic [Dash](https://dash.plotly.com "Dash Documentation and User Guide") app structure** which 
-allows to set up a multipage interactive data visualization app in no time. The Dash Data Dialogics app structure lets data scientists 
-and data analysts (who are not afraid of code) do what they do best: load, manipulate, combine, visualize and analyze data. 
+allows to easily set up a multipage interactive data visualization app. The Dash Data Dialogics app structure lets data scientists 
+and data analysts (who are not afraid of code), do what they do best: load, manipulate, combine, visualize and analyze data. 
 With Dash Data Dialogics data scientists and data analysts will spend less time on app development and more time on 
 data analytics and the data dialogue with domain experts and decision makers. 
  
@@ -12,13 +12,13 @@ essence of this analytical process is not the data, the algorithms or the visual
 domain experts and decision makers. This means domain experts and decision makers are not just consumers of the results, 
 they should be involved at the center of the analytical process. 
  
-With Dash Data Dialogics a data scientist or data analyst (who is not afraid of code) can facilitate the exchange of thoughts by adding 
-an extra viewpoint to the dialogue: the data visualizations. Just like the human thought flow, the data visualizations must continuously 
+With Dash Data Dialogics a data scientist or data analyst can facilitate the exchange of thoughts by adding 
+an extra viewpoint to the dialogue: the interactive data visualizations. Just like the human thought flow, the data visualizations must continuously 
 evolve and adapt to enrich the conversation. 
 
 Python, with its rich ecosystem of data analytics libraries, offers almost endless possibilities to handle and analyze data. 
 [Dash (by Plotly)](https://dash.plotly.com "Dash Documentation and User Guide") allows to put complex Python analytics in the hands of business users. 
-On top of that, the Dash Data Dialogics framework adds more **flexibility and speed to adapt data visualizations to the rhythm of the dialogue.** 
+On top of that, the Dash Data Dialogics framework adds more **efficiency and flexibility to adapt data visualizations to the rhythm of the dialogue.** 
 
 ## Copyright and license
 
