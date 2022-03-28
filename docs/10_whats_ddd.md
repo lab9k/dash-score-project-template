@@ -1,4 +1,4 @@
-# Data Dialogics with Dash
+# What is Dash Data Dialogics
 
 ## About
 This library provides a **basic [Dash](https://dash.plotly.com "Dash Documentation and User Guide") app structure** which 
@@ -20,50 +20,6 @@ Python, with its rich ecosystem of data analytics libraries, offers almost endle
 [Dash (by Plotly)](https://dash.plotly.com "Dash Documentation and User Guide") allows to put complex Python analytics in the hands of business users. 
 On top of that, the Dash Data Dialogics framework adds more **efficiency and flexibility to adapt data visualizations to the rhythm of the dialogue.** 
 
-## Application installation and usage
-
-### Prerequisites
-
-* git (on windows [git-scm](https://git-scm.com/))
-* python3.8 and above
-
-### Installation
-
-* Get the template on your computer
-
-```shell
-$ git clone https://github.com/lab9k/dash-score-project-template.git mydashboard
-$ cd mydashboard/
-```
-
-* We'll create a virtual environment to not pollute your python installation
-
-```shell
-$ python -m venv ./venv
-$ source ./.venv/bin/activate
-```
-
-This assumes a bash shell is used, for instructions for other
-platforms [go here](https://docs.python.org/3/library/venv.html).
-
-* install the application dependencies
-
-```shell
-(.venv) $ pip install -r requirements.txt
-```
-
-Now everything is set to run the application.
-
-### Run the application
-
-```shell
-(.venv) $ python index.py
-```
-
-### Usage instruction
-
-For a detailed instruction on how to use this template, please see the [docs folder](./docs/0_index.md)
-
 ## Copyright and license
 
 ## Background
@@ -74,7 +30,8 @@ Dash Data Dialogics started as a proof of concept at the City of Ghent and was a
 ### SCORE (Smart Cities + Open Data Re-use)
 SCORE is a project that aims to increase efficiency and quality of public services in cities through smart and open data-driven solutions. 
 	
-SCORE is a European Union funded project with nine cities and three universities participating: Amsterdam, Aarhus, Aberdeen, Bergen, Bradford, Dordrecht, Ghent, Gothenburg, Hamburg, University of Amsterdam, Aarhus University and University of Bradford.
+SCORE is a European Union funded project with nine cities and three universities participating: Amsterdam, Aarhus, Aberdeen, Bergen, 
+Bradford, Dordrecht, Ghent, Gothenburg, Hamburg, University of Amsterdam, Aarhus University and University of Bradford.
 	
-The partners develop innovative solutions based on open data and focus on sharing insights and methodologies for developing better public services. For instance in the shape of better management of sustainable mobility, improving air quality, monitoring flooding and furthering crowd management.
-
+The partners develop innovative solutions based on open data and focus on sharing insights and methodologies for developing better public 
+services. For instance in the shape of better management of sustainable mobility, improving air quality, monitoring flooding and furthering crowd management.
