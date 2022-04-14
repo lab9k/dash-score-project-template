@@ -10,8 +10,8 @@ Follow the steps below to set up your Dash Data Dialogics app.
 7. [Add data visualizations](#7_visualize)
 8. [Add interactivity](#8_callbacks)
 9. [Customize style](#9_style)
-9. [Publish app](#10_publish)
-10. 
+10. [Publish app](#10_publish)
+
 ## Prerequisites
 
 To be able to use this template, you should have python3.6 installed. You can download the latest release [here](https://www.python.org/downloads/release/python-368/)
@@ -200,6 +200,7 @@ For Windows:
 ## 10. Publish app<a id='10_publish'></a>
 
 By default, Dash apps run on localhost - you can only access them on your own machine. To share a Dash app, you need to "deploy" it to a server. 
+
 For more information [go here](https://dash.plotly.com/deployment). 
 
 
