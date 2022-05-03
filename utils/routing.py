@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import List
+from typing import List, Optional
 import pkgutil
 
 
@@ -7,6 +7,7 @@ import pkgutil
 class PathUtil:
     pieces: List[str]
     children: List['PathUtil']
+    callbacks_path: Optional[str]
 
     def fs_path(self) -> str:
         return join_path(*self.pieces)
@@ -46,4 +47,4 @@ def join_mod(*parts: str) -> str:
 
 def walk_package(name: str) -> List[PathUtil]:
     packages = pkgutil.walk_packages([name])
-    return [PathUtil([loader.path.split('/')[-1], name], []) for loader, name, _ in packages]
+    return [PathUtil([loader.path.split('/')[-1], name], [], None) for loader, name, _ in packages]
