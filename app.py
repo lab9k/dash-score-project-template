@@ -2,6 +2,7 @@ import dash
 
 import flask
 from flask_caching import Cache
+import dash_auth
 
 from environment import settings
 from layout import generate_layout
@@ -9,6 +10,10 @@ from routes import setup_routing
 from storage import container as storage_container
 
 flask_server = flask.Flask(__name__)
+
+VALID_USERNAME_PASSWORD_PAIRS = {
+    settings.LOGIN_USERNAME: settings.LOGIN_PASSWORD
+}
 
 app = dash.Dash(
     __name__,
@@ -19,6 +24,10 @@ app = dash.Dash(
     meta_tags=[
         {"name": "viewport", "content": "width=device-width, initial-scale=1"}
     ]
+)
+auth = dash_auth.BasicAuth(
+    app,
+    VALID_USERNAME_PASSWORD_PAIRS
 )
 
 cache = Cache(app.server, config={
