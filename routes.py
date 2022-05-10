@@ -60,12 +60,14 @@ def setup_routing(app: dash.Dash) -> List[PathUtil]:
         if p.is_page():
             modules[p.url()] = {
                 'module': importlib.import_module(p.mod_path()), 'path': p, 'is-child': False,
-                'callbacks': importlib.import_module(p.callbacks_path) if p.callbacks_path is not None else None
+                'callbacks': importlib.import_module(p.callbacks_path) if p.callbacks_path is not None else None,
+                'callbacks_ran': False
             }
         for ch in p.children:
             modules[ch.url()] = {
                 'module': importlib.import_module(ch.mod_path()), 'path': ch, 'is-child': True, 'parent': p,
-                'callbacks': importlib.import_module(ch.callbacks_path) if ch.callbacks_path is not None else None
+                'callbacks': importlib.import_module(ch.callbacks_path) if ch.callbacks_path is not None else None,
+                'callbacks_ran': False
             }
 
     @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
@@ -81,7 +83,7 @@ def setup_routing(app: dash.Dash) -> List[PathUtil]:
             sections.append(sidebar(curr_path['parent'].children))
         if curr_path is not None:
             sections.append(curr_path['module'].layout)
-            if curr_path['callbacks'] is not None:
+            if curr_path['callbacks'] is not None and not curr_path['callbacks_ran']:
                 curr_path['callbacks'].callbacks(app)
         else:
             sections.append(notfound)
