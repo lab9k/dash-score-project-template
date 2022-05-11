@@ -13,3 +13,7 @@ CACHE_TIMEOUT = 60
 DEBUG = os.getenv('DEBUG', None) is None
 
 DEFAULT_URL = '/drukte/parking'
+
+# Set username and password for the app. you can change the value by setting the environment variables
+LOGIN_USERNAME = os.getenv('LOGIN_USERNAME', 'admin')
+LOGIN_PASSWORD = os.getenv('LOGIN_PASSWORD', 'admin')
