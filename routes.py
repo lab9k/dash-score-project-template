@@ -70,7 +70,7 @@ def setup_routing(app: dash.Dash) -> List[PathUtil]:
                 'callbacks_ran': False
             }
 
-    @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
+    @app.callback(Output("page-content", "children"), Input("url", "pathname"))
     def render_page_content(pathname):
         curr_path = None
         if pathname in modules:
