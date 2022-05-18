@@ -83,7 +83,7 @@ def setup_routing(app: dash.Dash) -> List[PathUtil]:
             sections.append(sidebar(curr_path['parent'].children))
         if curr_path is not None:
             sections.append(curr_path['module'].layout)
-            if curr_path['callbacks'] is not None and not curr_path['callbacks_ran']:
+            if curr_path['callbacks'] is not None and curr_path['callbacks_ran'] is False:
                 curr_path['callbacks'].callbacks(app)
                 curr_path['callbacks_ran'] = True
         else:
