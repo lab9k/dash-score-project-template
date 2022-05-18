@@ -31,20 +31,20 @@ from data.preprocess import gapminderdf
 
 ######!!!============================ Define callback functions ============================######
 def callbacks(app: Dash):
-
+    print('running demo callbacks')
     @app.callback(
         Output('plot_gdp', 'figure'),
         Input('filter_year', 'value'))
     def update_gdp(selected_year):
         pltdf = gapminderdf()
         pltdf = pltdf[pltdf.year == selected_year]
-    
+
         fig = px.scatter(pltdf, x="gdpPercap", y="lifeExp",
                          size="pop", color="continent", hover_name="country",
                          log_x=True, size_max=55)
         fig.update_xaxes(range=[2, 5.1])
         fig.update_yaxes(range=[20, 90])
-    
+
         fig.update_layout(transition_duration=500)
 
         return fig
