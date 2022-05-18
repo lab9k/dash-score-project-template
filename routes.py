@@ -8,7 +8,6 @@ from components import notfound
 from environment import settings
 from utils.routing import find_module_names_in_path, walk_package, PathUtil
 from components.navigation import sidebar
-import time
 
 
 def _find_layouts_and_init_callbacks(app: dash.Dash):
@@ -61,14 +60,14 @@ def setup_routing(app: dash.Dash) -> List[PathUtil]:
         if p.is_page():
             modules[p.url()] = {
                 'module': importlib.import_module(p.mod_path()), 'path': p, 'is-child': False,
-                'callbacks': importlib.import_module(p.callbacks_path) if p.callbacks_path is not None else None,
-                'callbacks_ran': False
+                'callbacks': importlib.import_module(p.callbacks_path).callbacks(app) if p.callbacks_path is not None else None,
+                'callbacks_ran': True
             }
         for ch in p.children:
             modules[ch.url()] = {
                 'module': importlib.import_module(ch.mod_path()), 'path': ch, 'is-child': True, 'parent': p,
-                'callbacks': importlib.import_module(ch.callbacks_path) if ch.callbacks_path is not None else None,
-                'callbacks_ran': False
+                'callbacks': importlib.import_module(ch.callbacks_path).callbacks(app) if ch.callbacks_path is not None else None,
+                'callbacks_ran': True
             }
 
     @app.callback(Output("page-content", "children"), Input("url", "pathname"))
@@ -89,7 +88,6 @@ def setup_routing(app: dash.Dash) -> List[PathUtil]:
             if curr_path['callbacks'] is not None and curr_path['callbacks_ran'] is False:
                 print('Running callbacks for path')
                 curr_path['callbacks'].callbacks(app)
-                time.sleep(3)
                 curr_path['callbacks_ran'] = True
         else:
             sections.append(notfound)
