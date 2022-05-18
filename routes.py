@@ -79,11 +79,14 @@ def setup_routing(app: dash.Dash) -> List[PathUtil]:
             curr_path = modules[settings.DEFAULT_URL]
 
         sections = []
+        print(curr_path)
         if curr_path['is-child']:
             sections.append(sidebar(curr_path['parent'].children))
         if curr_path is not None:
+            print('setting current layout')
             sections.append(curr_path['module'].layout)
             if curr_path['callbacks'] is not None and curr_path['callbacks_ran'] is False:
+                print('Running callbacks for path')
                 curr_path['callbacks'].callbacks(app)
                 curr_path['callbacks_ran'] = True
         else:
