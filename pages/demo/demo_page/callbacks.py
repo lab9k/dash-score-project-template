@@ -14,6 +14,8 @@ import components.maps as maps
 
 ### import your custom data components
 from data.preprocess import gapminderdf
+
+
 # from data.analyse import ...
 # from data.prep import ...
 
@@ -28,10 +30,10 @@ from data.preprocess import gapminderdf
 # storage_container.add_memory_store('store_id')
 
 
-
 ######!!!============================ Define callback functions ============================######
 def callbacks(app: Dash):
     print('running demo callbacks')
+
     @app.callback(
         Output('plot_gdp', 'figure'),
         Input('filter_year', 'value'))
@@ -48,5 +50,3 @@ def callbacks(app: Dash):
         fig.update_layout(transition_duration=500)
 
         return fig
-
-
