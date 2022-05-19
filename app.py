@@ -11,9 +11,7 @@ from storage import container as storage_container
 
 flask_server = flask.Flask(__name__)
 
-VALID_USERNAME_PASSWORD_PAIRS = {
-    settings.LOGIN_USERNAME: settings.LOGIN_PASSWORD
-}
+VALID_USERNAME_PASSWORD_PAIRS = [(f'{settings.LOGIN_USERNAME}', f'{settings.LOGIN_PASSWORD}')]
 
 app = dash.Dash(
     __name__,

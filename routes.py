@@ -60,17 +60,17 @@ def setup_routing(app: dash.Dash) -> List[PathUtil]:
         if p.is_page():
             modules[p.url()] = {
                 'module': importlib.import_module(p.mod_path()), 'path': p, 'is-child': False,
-                'callbacks': importlib.import_module(p.callbacks_path) if p.callbacks_path is not None else None,
-                'callbacks_ran': False
+                'callbacks': importlib.import_module(p.callbacks_path).callbacks(app) if p.callbacks_path is not None else None,
+                'callbacks_ran': True
             }
         for ch in p.children:
             modules[ch.url()] = {
                 'module': importlib.import_module(ch.mod_path()), 'path': ch, 'is-child': True, 'parent': p,
-                'callbacks': importlib.import_module(ch.callbacks_path) if ch.callbacks_path is not None else None,
-                'callbacks_ran': False
+                'callbacks': importlib.import_module(ch.callbacks_path).callbacks(app) if ch.callbacks_path is not None else None,
+                'callbacks_ran': True
             }
 
-    @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
+    @app.callback(Output("page-content", "children"), Input("url", "pathname"))
     def render_page_content(pathname):
         curr_path = None
         if pathname in modules:
@@ -79,12 +79,16 @@ def setup_routing(app: dash.Dash) -> List[PathUtil]:
             curr_path = modules[settings.DEFAULT_URL]
 
         sections = []
+        print(curr_path)
         if curr_path['is-child']:
             sections.append(sidebar(curr_path['parent'].children))
         if curr_path is not None:
+            print('setting current layout')
             sections.append(curr_path['module'].layout)
-            if curr_path['callbacks'] is not None and not curr_path['callbacks_ran']:
+            if curr_path['callbacks'] is not None and curr_path['callbacks_ran'] is False:
+                print('Running callbacks for path')
                 curr_path['callbacks'].callbacks(app)
+                curr_path['callbacks_ran'] = True
         else:
             sections.append(notfound)
 

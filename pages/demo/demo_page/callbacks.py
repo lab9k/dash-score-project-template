@@ -14,6 +14,8 @@ import components.maps as maps
 
 ### import your custom data components
 from data.preprocess import gapminderdf
+
+
 # from data.analyse import ...
 # from data.prep import ...
 
@@ -28,9 +30,9 @@ from data.preprocess import gapminderdf
 # storage_container.add_memory_store('store_id')
 
 
-
 ######!!!============================ Define callback functions ============================######
 def callbacks(app: Dash):
+    print('running demo callbacks')
 
     @app.callback(
         Output('plot_gdp', 'figure'),
@@ -38,15 +40,13 @@ def callbacks(app: Dash):
     def update_gdp(selected_year):
         pltdf = gapminderdf()
         pltdf = pltdf[pltdf.year == selected_year]
-    
+
         fig = px.scatter(pltdf, x="gdpPercap", y="lifeExp",
                          size="pop", color="continent", hover_name="country",
                          log_x=True, size_max=55)
         fig.update_xaxes(range=[2, 5.1])
         fig.update_yaxes(range=[20, 90])
-    
+
         fig.update_layout(transition_duration=500)
 
         return fig
-
-
