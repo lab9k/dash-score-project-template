@@ -10,6 +10,7 @@ Follow the steps below to set up your Dash Data Dialogics app.
 7. [Add data visualizations](#7_visualize)
 8. [Add interactivity](#8_callbacks)
 9. [Customize style](#9_style)
+10. [Publish app](#10_publish)
 
 ## Prerequisites
 
@@ -196,8 +197,11 @@ For Windows:
 (.venv) $ sass styles/main.scss assets/style.css
 ```
 
+## 10. Publish app<a id='10_publish'></a>
 
+By default, Dash apps run on localhost - you can only access them on your own machine. To share a Dash app, you need to "deploy" it to a server. 
 
+For more information [go here](https://dash.plotly.com/deployment). 
 
 
 
